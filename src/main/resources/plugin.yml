@@ -1,0 +1,8 @@
+name: PlayerEdit
+version: ${project.version}
+main: me.adelemphii.playeredit.PlayerEdit
+api-version: 1.13
+
+commands:
+  edit:
+    description: Edit items!
