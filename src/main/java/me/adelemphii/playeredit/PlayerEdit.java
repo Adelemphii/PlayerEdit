@@ -12,8 +12,6 @@ public final class PlayerEdit extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
-        PlayerEditUtils mechanic = new PlayerEditUtils(this);
-
         getCommand("edit").setExecutor(new PlayerEditCommand(this));
         getServer().getPluginManager().registerEvents(new PlayerEditUtils(this), this);
     }

@@ -1,8 +1,6 @@
 package me.adelemphii.playeredit.utils;
 
 import me.adelemphii.playeredit.PlayerEdit;
-import org.apache.commons.lang.time.DateUtils;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -15,7 +13,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class PlayerEditUtils implements Listener {
 
@@ -27,10 +24,6 @@ public class PlayerEditUtils implements Listener {
 
     private static final int PE_MAXLINES = 20;
     private static final int PE_MAXWIDTH = 40;
-    protected static ArrayList<UUID> adminRenameList = new ArrayList<>();
-    protected static ArrayList<UUID> modRenameList = new ArrayList<>();
-    protected static ArrayList<UUID> etRenameList = new ArrayList<>();
-    protected static ArrayList<UUID> ltRenameList = new ArrayList<>();
     private static final String PE_PREFIX = ChatColor.BLUE + "PlayerEdit" + ChatColor.DARK_GRAY + " » " + ChatColor.GRAY;
 
     private static final String PE_SETDESC = ChatColor.GREEN + " You have updated your items description";
@@ -280,8 +273,6 @@ public class PlayerEditUtils implements Listener {
             lore = meta.getLore();
         }
 
-        ChatColor chatColor;
-
         lore.add("");
         lore.add(ChatColor.DARK_GRAY + "{Player Signed: " + ChatColor.GRAY + name + ChatColor.DARK_GRAY + "}");
         lore.add(ChatColor.DARK_GRAY + "      (" + ChatColor.GRAY + user.getPlayer().getName() + ChatColor.DARK_GRAY + ")");
@@ -300,7 +291,6 @@ public class PlayerEditUtils implements Listener {
     //Checks if user is a signatory, so it knows whether
     //or not the signature can be removed
     public boolean isSignatory(Player player, ItemStack item) {
-        ;
         String s = PDCEditor.getString("signed", item);
         return s.equals(player.getUniqueId().toString());
     }

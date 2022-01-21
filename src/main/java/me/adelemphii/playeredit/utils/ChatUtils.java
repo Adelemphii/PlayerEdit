@@ -16,7 +16,7 @@ public class ChatUtils {
      *
      */
     public static void errorMessage(Player player, String error) {
-        player.sendMessage(ChatColor.DARK_RED + "[!] " + ChatColor.RED.toString() + ChatColor.ITALIC + ChatColor.translateAlternateColorCodes('&', error));
+        player.sendMessage(ChatColor.DARK_RED + "[!] " + ChatColor.RED + ChatColor.ITALIC + ChatColor.translateAlternateColorCodes('&', error));
         player.playSound(player.getLocation(), Sound.BLOCK_REDSTONE_TORCH_BURNOUT, 1F, 1F);
     }
 
@@ -28,29 +28,7 @@ public class ChatUtils {
      *
      */
     public static void syntaxError(Player player, String correctSyntax) {
-        player.sendMessage(ChatColor.DARK_RED + "[!] " + ChatColor.RED.toString() + "Syntax Error: " + ChatColor.ITALIC + ChatColor.translateAlternateColorCodes('&', correctSyntax));
+        player.sendMessage(ChatColor.DARK_RED + "[!] " + ChatColor.RED + "Syntax Error: " + ChatColor.ITALIC + ChatColor.translateAlternateColorCodes('&', correctSyntax));
         player.playSound(player.getLocation(), Sound.BLOCK_REDSTONE_TORCH_BURNOUT, 1F, 1F);
     }
-
-    /**
-     * Returns GREEN (true) or RED (false)
-     */
-    public static net.md_5.bungee.api.ChatColor boolToChatColor(boolean b) {
-
-        return b ? net.md_5.bungee.api.ChatColor.GREEN : net.md_5.bungee.api.ChatColor.RED;
-
-    }
-
-    /**
-     * Fixes color on base components, so the color
-     * does not go back to white once the text goes
-     * on to the second line.
-     * @param text text
-     *
-     * @return fixed base component
-     */
-    public static BaseComponent[] fixColor(String text) {
-        return TextComponent.fromLegacyText(org.bukkit.ChatColor.translateAlternateColorCodes('&', text));
-    }
-
 }
